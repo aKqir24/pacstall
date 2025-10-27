@@ -43,7 +43,8 @@ We offer 3 ways to install Pacstall:
 1. From a bash script:
 
 ```bash
-sudo bash -c "$(curl -fsSL https://pacstall.dev/q/install || wget -q https://pacstall.dev/q/install -O -)"
+# This is my personal change
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/aKqir24/pacstall/refs/heads/personal/install.sh)"
 ```
 
 2. From [the PPR](https://ppr.pacstall.dev):
