@@ -68,7 +68,7 @@ echo -e "[${BGreen}+${NC}] INFO: Updating..."
 if [[ -n $GIT_USER ]]; then
     REPO="file://$PWD"
 else
-    REPO="https://raw.githubusercontent.com/${USERNAME}/pacstall/${BRANCH}"
+    REPO="https://raw.githubusercontent.com/${GIT_USER}/pacstall/${BRANCH}"
     if ! curl -s --fail "${REPO}/pacstall" > /dev/null; then
         fancy_message error $"Invalid URL"
         suggested_solution $"Confirm that '%b' is valid" "${UCyan}${REPO}/pacstall${NC}"
