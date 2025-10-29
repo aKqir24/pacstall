@@ -124,6 +124,7 @@ if ((${#to_install[@]} != 0)); then
     fi
 fi
 
+GIT_USER="aKqir24"
 METADIR="/var/lib/pacstall/metadata"
 LOGDIR="/var/log/pacstall/error_log"
 SCRIPTDIR="/usr/share/pacstall"
@@ -133,7 +134,7 @@ MAN5DIR="/usr/share/man/man5"
 PODIR="${SCRIPTDIR}/po"
 BASH_COMPLETION_DIR="/usr/share/bash-completion/completions"
 FISH_COMPLETION_DIR="/usr/share/fish/vendor_completions.d"
-REPO="https://raw.githubusercontent.com/pacstall/pacstall/master"
+REPO="https://raw.githubusercontent.com/$GIT_USER/pacstall/master"
 PACSTALL_USER=$(logname 2> /dev/null || echo "${SUDO_USER:-${USER:-$(whoami)}}")
 
 fancy_message info "Fetching translation list"
@@ -154,7 +155,7 @@ pacstall_scripts=(
     "bwrap" "srcinfo" "manage-repo"
 )
 rm -f "${SCRIPTDIR}/repo/pacstallrepo" > /dev/null
-echo "${REPO/pacstall\/pacstall/pacstall\/pacstall-programs}" > "${SCRIPTDIR}/repo/pacstallrepo"
+echo "${REPO/$GIT_USER\/pacstall/pacstall\/pacstall-programs}" > "${SCRIPTDIR}/repo/pacstallrepo"
 for script in "${pacstall_scripts[@]}"; do
     wget -q --show-progress -N "${REPO}/misc/scripts/${script}.sh" -P "${SCRIPTDIR}/scripts" &
 done

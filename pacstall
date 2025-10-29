@@ -1405,5 +1405,6 @@ Helpful links:
     shift
 done
 if [[ $1 == '--' ]]; then shift; fi
+trap 'echo "Interrupted. Exiting cleanly."; exit 1' INT
 
 # vim:set ft=sh ts=4 sw=4 et:
