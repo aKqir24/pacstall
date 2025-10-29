@@ -65,6 +65,7 @@ pacstall_deps=(
 
 echo -e "[${BGreen}+${NC}] INFO: Updating..."
 
+GIT_USER="$(git config user.name)"
 if [[ -n $GIT_USER ]]; then
     REPO="file://$PWD"
 else
